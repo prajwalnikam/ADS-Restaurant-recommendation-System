@@ -1,66 +1,107 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
     <title>Restaurant Recommendation System</title>
     <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
         body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        header {
+            background-color: #222;
+            color: #fff;
+            padding: 20px 40px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            flex-direction: column;
-            color: black;
-            background-color: white;
         }
-        header {
-            display: flex;
-            justify-content: space-between;
-            inline-size: 100%;
-            background-color: black;
-            color: white;
-            padding: 20px;
-        }
+
         header h1 {
-            margin: 0;
+            font-size: 1.5rem;
         }
+
         header div {
             display: flex;
-            gap: 10px;
+            gap: 15px;
         }
+
         button {
-            background-color: black;
+            background-color: #555;
             color: white;
             border: none;
-            padding: 10px 20px; /* Increase horizontal padding */
-            text-align: center;
-            text-decoration: none;
-            display: inline-block;
-            font-size: 16px;
-            margin: 4px 2px;
+            padding: 10px 20px;
+            font-size: 15px;
+            border-radius: 4px;
             cursor: pointer;
-            transition: background-color 0.3s ease; /* Add transition for hover effect */
+            transition: background-color 0.3s ease;
         }
+
         button:hover {
-            background-color: #444; /* Darken background on hover */
+            background-color: #333;
         }
+
         .middle-content {
             display: flex;
-            justify-content: space-between;
-            inline-size: 100%;
-            padding: 20px;
-        }
-        .middle-content .text {
-            inline-size: 50%;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
+            flex-wrap: wrap;
             justify-content: center;
-            text-align: center;
+            align-items: center;
+            padding: 40px 20px;
+            max-width: 1200px;
+            margin: auto;
+            flex: 1;
         }
-        .middle-content .image {
-            inline-size: 50%;
+
+        .text {
+            flex: 1;
+            padding: 20px;
+            min-width: 300px;
         }
-        .middle-content img {
-            inline-size: 100%;
+
+        .text h2 {
+            font-size: 24px;
+            margin-bottom: 15px;
+            color: #111;
+        }
+
+        .text p {
+            font-size: 16px;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .image {
+            flex: 1;
+            padding: 20px;
+            min-width: 300px;
+        }
+
+        .image img {
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+        }
+
+        @media (max-width: 768px) {
+            .middle-content {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .text, .image {
+                padding: 10px;
+            }
         }
     </style>
 </head>
@@ -72,21 +113,20 @@
             <button onclick="location.href='/recommend'">Recommend</button>
         </div>
     </header>
+
     <div class="middle-content">
         <div class="text">
-            <h2>Build Recommendation System with ease!!</h2>
-            <p>In this age of information overload, people use a variety of strategies to make 
-                choices about what to buy, how to spend their leisure time, and even where to go. 
-                Recommender systems automate some of these strategies with the goal of providing affordable food items.
-                The aim is to create a content-based recommender system in which when we write a restaurant name, the 
-                recommender system will look at the reviews of other restaurants, and the system will recommend us other 
-                restaurants with similar reviews and sort them from the highest-rated.
+            <h2>Build a Recommendation System with Ease!</h2>
+            <p>
+                In today's world full of options, recommender systems help users make smart choices —
+                from food to entertainment. This system uses reviews to recommend restaurants
+                with similar positive experiences and ranks them by rating.
             </p>
-            <h2>Test the System</h2>
-            <button onclick="location.href='/recommend'">Recommend</button>
+            <h2>Try It Now</h2>
+            <button onclick="location.href='/recommend'">Get Recommendations</button>
         </div>
         <div class="image">
-            <img src="{{ url_for('static', filename='image.jpeg') }}" alt="Your Image">
+            <img src="{{ url_for('static', filename='image.jpeg') }}" alt="Restaurant Illustration">
         </div>
     </div>
 </body>
